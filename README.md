@@ -3,6 +3,7 @@
 A python program with simple currency exchange rate search function
 
 Version 2
+
 A python program to get the real-time currency exchange rate
 fucntion:
 1. get currency exchange rate between CAD and CNY for the first step
