@@ -17,6 +17,7 @@ fucntion:
 
 
 ---Summary---
+
 Learning notes:
 1. forex-python project makes the whole project easier since it grabs all information needed for currency exchange rate and bitcoin price.
 2. smtplib python module can be used for simple mass emails sending tasks. It also supports both plain-text and html format.
