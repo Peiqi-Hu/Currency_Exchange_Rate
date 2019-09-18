@@ -22,4 +22,5 @@ Reference:
 3. forex project github page: https://github.com/MicroPyramid/forex-python/blob/master/forex_python/converter.py
 4. tkinter (GUI): https://www.python-course.eu/tkinter_entry_widgets.php
 
-'''
+Useful links:
+https://python-textbok.readthedocs.io/en/1.0/Introduction_to_GUI_Programming.html
