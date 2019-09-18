@@ -6,18 +6,16 @@ def get_currency(from_currency, to_currency):
     from forex_python.converter import CurrencyRates
     c = CurrencyRates()
     result = c.get_rate(from_currency, to_currency) #get currency rate between CAD and CNY
-
     print("Result: \n","from currency", from_currency, "to currency", to_currency,
           " is ",result)
-
     return result
 
 def get_bitcoin(currency):
     from forex_python.bitcoin import BtcConverter
     b = BtcConverter()
     result_bit = b.get_latest_price(currency)
-
     print("Result: \n", "Bitcoin in currency", currency, "is", result_bit)
+    return result_bit
 
 # using SMTP_SSL()
 def send_email(sender_email, receiver_email, subject, body):
@@ -94,6 +92,29 @@ def process():
     result = get_currency(from_currency, to_currency)
     tk.Entry.insert(E4, 0, result)
 
+def process_bitcoin():
+    currency = tk.Entry.get(E1)
+    result = get_bitcoin(currency)
+    tk.Entry.insert(E4, 0, result)
+
+def process_email():
+    from_currency = tk.Entry.get(E1)
+    to_currency = tk.Entry.get(E2)
+
+    sender_email = "my@gmail.com"
+    receiver_email = "your@gmail.com"
+    subject_curr = "Currency Exchange Rate Update"
+    subject_bitcoin = "Bitcoin Price in a Ceratin Currency"
+
+    result_curr = get_currency(from_currency, to_currency)
+    result_bitcoin = get_bitcoin(from_currency)
+    
+    body_1 = "The currency rate between " + from_currency + " and " + to_currency + " is " + str(result_curr)
+    body_2 = "The bitcoin price in " + from_currency + " is " + str(result_bitcoin)
+    body = body_1 + " \n" + body_2
+    send_email(sender_email, receiver_email, subject_curr, body)
+    print("Email Sent")
+
 if __name__ == "__main__":
     # create a Tk root widget
     top = tk.Tk()
@@ -110,7 +131,10 @@ if __name__ == "__main__":
     E4 = tk.Entry(top, bd=5)
     E4.grid(row=4, column=1)
     
-    B = tk.Button(top, text="Enter", command=process).grid(row=3, column=1)
+    B1 = tk.Button(top, text="Currency Rate", command=process).grid(row=3, column=0)
+    B2 = tk.Button(top, text="Bitcoin", command=process_bitcoin).grid(row=3, column=1)
+    B3 = tk.Button(top, text="Send Email", command=process_email).grid(row=3, column=2)
+    B4 = tk.Button(top, text="Clear", command=E4.delete(0, tk.END)).grid(row=5, column=1)
 
     top.mainloop()
 
