@@ -63,29 +63,6 @@ def send_email(sender_email, receiver_email, subject, body):
         server.sendmail(sender_email, receiver_email, message.as_string())
         server.quit()
 
-'''
-# create a GUI
-def create_gui():
-    # create a Tk root widget
-    top = tk.Tk()
-    top.title("Currency Exchange Rate Project")
-    # label widget
-    L0 = tk.Label(top, text="Hello There",).grid(row=0, column=1)
-    L1 = tk.Label(top, text="from currency",).grid(row=1, column=0)
-    L2 = tk.Label(top, text="to currency",).grid(row=2, column=0)
-    L3 = tk.Label(top, text="Result",).grid(row=3, column=0)
-    E1 = tk.Entry(top, bd=5)
-    E1.grid(row=1, column=1)
-    E2 = tk.Entry(top, bd=5)
-    E2.grid(row=2, column=1)
-    E3 = tk.Entry(top, bd=5)
-    E3.grid(row=3, column=1)
-    
-    B = tk.Button(top, text="Enter", command=process).grid(row=4, column=1)
-
-    top.mainloop()
-'''
-
 def process():
     from_currency = tk.Entry.get(E1)
     to_currency = tk.Entry.get(E2)
