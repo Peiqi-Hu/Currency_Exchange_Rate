@@ -1,22 +1,9 @@
-''' Version 2
-A python program to get the real-time currency exchange rate
-fucntion:
-1. get currency exchange rate between CAD and CNY for the first step
-2. send results to the email address or to the phone number
-3. create histogram based on the past rate -- not done yet
-4. send a notification once the rate is over or lower than the value set
-    or send a notification regularly
-5. make a prediction (optional)
-6. GUI window
-'''
-
 import time
 import datetime as dt
 import tkinter as tk
 
 def get_currency(from_currency, to_currency):
     from forex_python.converter import CurrencyRates
-
     c = CurrencyRates()
     result = c.get_rate(from_currency, to_currency) #get currency rate between CAD and CNY
 
@@ -27,7 +14,6 @@ def get_currency(from_currency, to_currency):
 
 def get_bitcoin(currency):
     from forex_python.bitcoin import BtcConverter
-
     b = BtcConverter()
     result_bit = b.get_latest_price(currency)
 
@@ -73,7 +59,6 @@ def send_email(sender_email, receiver_email, subject, body):
     
     # Create a secure SSL context
     context = ssl.create_default_context()
-
     with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
         server.login(sender_email, password)
         # Send email
@@ -170,19 +155,8 @@ if __name__ == "__main__":
                 send_time = send_time + interval
 
         user_menu_input = input("Enter Quit to quit: ")
-        
-
     
     print("Thank you !")
-'''
-    
-'''
-Reference:
-1. send email regularly: https://stackoverflow.com/questions/52022134/how-do-i-schedule-an-email-to-send-at-a-certain-time-using-cron-and-smtp-in-pyt
-2. send email use python: https://realpython.com/python-send-email/#getting-started
-3. forex project github page: https://github.com/MicroPyramid/forex-python/blob/master/forex_python/converter.py
-4. tkinter (GUI): https://www.python-course.eu/tkinter_entry_widgets.php
-
 '''
     
 
