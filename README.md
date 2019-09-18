@@ -1,8 +1,8 @@
 # Currency_Exchange_Rate
 
-A python program with simple currency exchange rate search function
+A python program with simple currency exchange rate search function.
 
-Version 2
+---Version 2---
 
 A python program to get the real-time currency exchange rate
 fucntion:
